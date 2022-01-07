@@ -9,6 +9,7 @@
 .navLinks{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .navLink{
