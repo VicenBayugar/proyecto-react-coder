@@ -1,0 +1,24 @@
+.itemCard{
+    width: 200px;
+    height: 450px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorImg{
+    overflow: hidden;
+}
+
+.imagen{
+    width: 100%;
+    height: auto;
+}

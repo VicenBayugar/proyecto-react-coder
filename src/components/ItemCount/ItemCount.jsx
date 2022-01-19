@@ -4,28 +4,26 @@ import "./ItemCount.css";
 const ItemCount = ({ stock, initial }) => {
   const [counter, setCounter] = useState(initial);
 
+  const sumar = () => {
+    if (counter < stock) {
+      setCounter(counter + 1);
+    }
+  };
+
+  const restar = () => {
+    if (counter > initial) {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
     <div className="counter">
       <div>
-        <button
-          className="botonMenos"
-          onClick={() => {
-            if (counter > 1) {
-              setCounter(counter - 1);
-            }
-          }}
-        >
+        <button className="botonMenos" onClick={() => restar()}>
           -
         </button>
         {counter}
-        <button
-          className="botonMas"
-          onClick={() => {
-            if (counter < stock) {
-              setCounter(counter + 1);
-            }
-          }}
-        >
+        <button className="botonMas" onClick={() => sumar()}>
           +
         </button>
       </div>

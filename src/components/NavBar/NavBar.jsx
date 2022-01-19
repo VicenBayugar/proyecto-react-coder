@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import Carrito from "../../assets/carrito-de-compras.png";
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
   return (
@@ -17,7 +17,7 @@ const NavBar = () => {
         </a>
         <a href="/" className="navLink">
           <li>
-            <img src={Carrito} alt="" width={"25px"} />
+            <CartWidget />
           </li>
         </a>
       </ul>
