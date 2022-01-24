@@ -11,10 +11,13 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <ItemListContainer greeting="Bienvenidos a AppleStore" />
+            <ItemListContainer greeting="Bienvenido a MegaStore" />
           </Route>
           <Route path="/detalle/:itemId">
             <ItemDetailContainer />
+          </Route>
+          <Route path="/category/:categoryId">
+            <ItemListContainer />
           </Route>
         </Switch>
       </div>

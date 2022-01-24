@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState([true]);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    setTimeout(() => {
-      const obtenerProductos = async () => {
-        const data = await fetch("http://fakestoreapi.com/products");
-        const productosObtenidos = await data.json();
-        setProducts(productosObtenidos);
-        setLoading(false);
-      };
-      obtenerProductos();
-    }, 2000);
-  }, []);
+    setLoading(true);
+    const obtenerProductos = async () => {
+      const data = await fetch(`http://fakestoreapi.com/products`);
+      const productosObtenidos = await data.json();
+      categoryId
+        ? setProducts(
+            productosObtenidos.filter((item) => item.category === categoryId)
+          )
+        : setProducts(productosObtenidos);
+      setLoading(false);
+    };
+    obtenerProductos();
+  }, [categoryId]);
 
   return (
     <div className="main">
