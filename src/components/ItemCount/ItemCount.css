@@ -1,8 +1,6 @@
 .counter{
-    width: 200px;
-    background-color: white;
+ 
     border-radius: 5px;
-    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
     padding: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -28,7 +26,6 @@
 }
 
 button{
-    background-color: turquoise;
     border: none;
     font: inherit;
     background-color: #0071e3;
