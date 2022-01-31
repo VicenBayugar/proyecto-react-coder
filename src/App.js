@@ -3,6 +3,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -11,13 +12,16 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <ItemListContainer greeting="Bienvenido a MegaStore" />
+            <ItemListContainer greeting="Welcome to MegaStore" />
           </Route>
           <Route path="/detalle/:itemId">
             <ItemDetailContainer />
           </Route>
           <Route path="/category/:categoryId">
             <ItemListContainer />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
         </Switch>
       </div>

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
+  const [irAlCarrito, setIrAlCarrito] = useState(false);
+
+  const onAdd = (cantidad) => {
+    alert("Agregaste " + cantidad + " " + product.title);
+    setIrAlCarrito(true);
+  };
+
   return (
     <div className="productoCard">
       <div className="imgContainer">
@@ -14,7 +22,15 @@ const ItemDetail = ({ product }) => {
         <h4>Opinions: {product.rating.count}</h4>
         <h4>Rate: {product.rating.rate}</h4>
         <h1>USD${product.price}</h1>
-        <ItemCount stock={5} initial={1} />
+        <div>
+          {irAlCarrito ? (
+            <Link to="/cart" className="verCarrito">
+              Ver carrito
+            </Link>
+          ) : (
+            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+          )}
+        </div>
       </div>
     </div>
   );
