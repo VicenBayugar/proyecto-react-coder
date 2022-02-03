@@ -1,0 +1,61 @@
+.cartCard{
+    width: 70%;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:stretch;
+    margin: 50px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.cardProducto{
+    display: flex;
+    align-items: center;
+}
+
+.imgCart{
+    width: 10%;
+}
+
+.imgCarrito{
+    width: 100%;
+    height: auto;
+    padding: 7px;
+}
+
+.descripcionCarrito{
+    width: 80%;
+    padding: 5px;
+}
+
+.boton{
+    width: 10%;
+}
+
+.botonEliminar{
+    background-color: #e30000;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.vaciarCarrito{
+    background-color: #e30000;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    width: 40%;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}

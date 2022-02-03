@@ -12,7 +12,7 @@ const Item = ({ data }) => {
         <h4>{data.title}</h4>
         <h4>${data.price}</h4>
         <Link to={`/detalle/${data.id}`} className="linkDetalle">
-          Ver detalle
+          View detail
         </Link>
       </div>
     </div>
