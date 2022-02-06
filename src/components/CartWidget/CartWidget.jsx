@@ -4,7 +4,7 @@ import Carrito from "../../assets/carrito-de-compras.png";
 const CartWidget = () => {
   return (
     <>
-      <img src={Carrito} alt="" width={"25px"} />
+      <img src={Carrito} alt="" width={"23px"} />
     </>
   );
 };

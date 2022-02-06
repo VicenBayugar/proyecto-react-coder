@@ -7,20 +7,20 @@ const CartContext = ({ children }) => {
 
   const addItem = (producto, cantidad) => {
     if (isInCart(producto.id)) {
-      const indexItem = cart.findIndex((e) => e.item.id === producto.id);
+      const indexItem = cart.findIndex((e) => e.id === producto.id);
       cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad;
       setCart([...cart]);
     } else {
-      setCart([...cart, { item: producto, cantidad }]);
+      setCart([...cart, { ...producto, cantidad }]);
     }
   };
 
   const isInCart = (id) => {
-    return cart.some((i) => i.item.id === id);
+    return cart.some((i) => i.id === id);
   };
 
   const removeItem = (id) => {
-    const carritoActualizado = cart.filter((e) => e.item.id !== id);
+    const carritoActualizado = cart.filter((e) => e.id !== id);
     setCart(carritoActualizado);
   };
 
@@ -28,8 +28,22 @@ const CartContext = ({ children }) => {
     setCart([]);
   };
 
+  const totalCarrito = () => {
+    return cart
+      .map((item) => item.price * item.cantidad)
+      .reduce((acum, valor) => acum + valor, 0);
+  };
+
+  const totalItemsCart = () => {
+    return cart.reduce((acum, producto) => {
+      return acum + producto.cantidad;
+    }, 0);
+  };
+
   return (
-    <contexto.Provider value={{ cart, addItem, removeItem, clear }}>
+    <contexto.Provider
+      value={{ cart, addItem, removeItem, clear, totalCarrito, totalItemsCart }}
+    >
       {children}
     </contexto.Provider>
   );

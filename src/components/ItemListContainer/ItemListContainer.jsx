@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+// import { getFirestore } from "../firebase/firebase";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -9,6 +10,8 @@ const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    // const db = getFirestore()
+
     setLoading(true);
     const obtenerProductos = async () => {
       const data = await fetch(`http://fakestoreapi.com/products`);
