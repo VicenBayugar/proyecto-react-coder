@@ -2,28 +2,40 @@ import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-// import { getFirestore } from "../firebase/firebase";
+import { getFirestore } from "../../firebase/firebase";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState([true]);
+  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
-    // const db = getFirestore()
-
     setLoading(true);
-    const obtenerProductos = async () => {
-      const data = await fetch(`http://fakestoreapi.com/products`);
-      const productosObtenidos = await data.json();
-      categoryId
-        ? setProducts(
-            productosObtenidos.filter((item) => item.category === categoryId)
-          )
-        : setProducts(productosObtenidos);
-      setLoading(false);
-    };
-    obtenerProductos();
+    const db = getFirestore();
+    const itemCollection = db.collection("productos");
+    itemCollection
+      .get()
+      .then((querySnapshot) => {
+        categoryId
+          ? setProducts(
+              querySnapshot.docs
+                .filter((item) => item.data().category === `${categoryId}`)
+                .map((doc) => {
+                  return { id: doc.id, ...doc.data() };
+                })
+            )
+          : setProducts(
+              querySnapshot.docs.map((doc) => {
+                return { id: doc.id, ...doc.data() };
+              })
+            );
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [categoryId]);
 
   return (

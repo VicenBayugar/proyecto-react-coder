@@ -10,43 +10,25 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <NavLink to="/">
-        <h1>MegaStore</h1>
+        <h1>AppleStore</h1>
       </NavLink>
       <ul className="navLinks">
         <li>
           <NavLink
-            to="/category/electronics"
+            to="/category/iphone13"
             className="navLink"
             activeClassName="currentCategory"
           >
-            Electronics
+            Iphone 13
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/category/jewelery"
+            to="/category/iphone12"
             className="navLink"
             activeClassName="currentCategory"
           >
-            Jewelery
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/category/men's clothing"
-            className="navLink"
-            activeClassName="currentCategory"
-          >
-            Men's clothing
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/category/women's clothing"
-            className="navLink"
-            activeClassName="currentCategory"
-          >
-            Women's clothing
+            Iphone 12
           </NavLink>
         </li>
         <li>
