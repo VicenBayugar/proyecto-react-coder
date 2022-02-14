@@ -20,7 +20,7 @@
     margin-right: 0.5rem;
     text-decoration: none;
     color: black;
-    padding: 3px 6px;
+    padding: 4px 8px;
     border-radius: 10px;
 }
 
@@ -50,4 +50,8 @@ h1{
     .navbar{
         justify-content: center;
     }
+}
+
+.negrita{
+    font-weight: bold;
 }

@@ -11,31 +11,45 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setLoading(true);
-    const db = getFirestore();
-    const itemCollection = db.collection("productos");
-    itemCollection
-      .get()
-      .then((querySnapshot) => {
-        categoryId
-          ? setProducts(
-              querySnapshot.docs
-                .filter((item) => item.data().category === `${categoryId}`)
-                .map((doc) => {
-                  return { id: doc.id, ...doc.data() };
-                })
-            )
-          : setProducts(
-              querySnapshot.docs.map((doc) => {
-                return { id: doc.id, ...doc.data() };
-              })
-            );
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (categoryId) {
+      const db = getFirestore();
+      const itemCollection = db
+        .collection("productos")
+        .where("category", "==", `${categoryId}`);
+      itemCollection
+        .get()
+        .then((querySnapshot) => {
+          setProducts(
+            querySnapshot.docs.map((doc) => {
+              return { id: doc.id, ...doc.data() };
+            })
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      const db = getFirestore();
+      const itemCollection = db.collection("productos");
+      itemCollection
+        .get()
+        .then((querySnapshot) => {
+          setProducts(
+            querySnapshot.docs.map((doc) => {
+              return { id: doc.id, ...doc.data() };
+            })
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, [categoryId]);
 
   return (

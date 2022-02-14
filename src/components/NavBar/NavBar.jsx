@@ -16,7 +16,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/iphone13"
-            className="navLink"
+            className="navLink negrita"
             activeClassName="currentCategory"
           >
             Iphone 13
@@ -25,7 +25,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/iphone12"
-            className="navLink"
+            className="navLink negrita"
             activeClassName="currentCategory"
           >
             Iphone 12
@@ -38,7 +38,7 @@ const NavBar = () => {
             activeClassName="currentCategory"
           >
             <CartWidget />
-            <span>({totalItemsCart()})</span>
+            <span className="negrita">({totalItemsCart()})</span>
           </NavLink>
         </li>
       </ul>
