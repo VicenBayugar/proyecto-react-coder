@@ -18,7 +18,8 @@ const Cart = () => {
     setTotal(totalCarrito());
   }, [totalCarrito]);
 
-  const terminarCompra = () => {
+  const terminarCompra = (e) => {
+    e.preventDefault();
     const db = getFirestore();
     const orders = db.collection("orders");
 
@@ -41,11 +42,19 @@ const Cart = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        clear();
       });
   };
 
   return (
-    <>
+    <div className="divCart">
+      {orderId && (
+        <div className="cartCard">
+          <h1>Congratulations! Your order number is: {orderId}</h1>
+        </div>
+      )}
       {cart.length === 0 ? (
         <>
           <h2>Your cart is empty...</h2>
@@ -54,66 +63,72 @@ const Cart = () => {
           </h1>
         </>
       ) : (
-        <div className="cartCard">
-          <h2>Total to pay: USD${total}</h2>
-          {cart.map((i) => (
-            <div key={i.id} className="cardProducto">
-              <div className="imgCart">
-                <img src={i.image} alt="" className="imgCarrito" />
+        <>
+          <div className="cartCard">
+            <h2>Total to pay: USD${total}</h2>
+            {cart.map((i) => (
+              <div key={i.id} className="cardProducto">
+                <div className="imgCart">
+                  <img src={i.image} alt="" className="imgCarrito" />
+                </div>
+                <div className="descripcionCarrito">
+                  <h4>{i.title}</h4>
+                  <p>Quantity: {i.cantidad}</p>
+                  <p>Total: USD${i.price * i.cantidad}</p>
+                </div>
+                <div className="boton">
+                  <button
+                    className="botonEliminar"
+                    onClick={() => removeItem(i.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-              <div className="descripcionCarrito">
-                <h4>{i.title}</h4>
-                <p>Quantity: {i.cantidad}</p>
-                <p>Total: USD${i.price * i.cantidad}</p>
-              </div>
-              <div className="boton">
-                <button
-                  className="botonEliminar"
-                  onClick={() => removeItem(i.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
-          <button className="vaciarCarrito" onClick={() => clear()}>
-            Empty cart
-          </button>
-          <div className="formCompra">
-            <h2>Enter your personal data:</h2>
-
-            <input
-              type="text"
-              name="name"
-              ref={nameRef}
-              placeholder="Full name"
-              className="inputsForm"
-            />
-
-            <input
-              type="text"
-              name="mobile"
-              ref={mobileRef}
-              placeholder="Phone number"
-              className="inputsForm"
-            />
-
-            <input
-              type="text"
-              name="email"
-              ref={emailRef}
-              placeholder="Email"
-              className="inputsForm"
-            />
-
-            <button onClick={() => terminarCompra()} className="botonComprar">
-              Buy!
+            ))}
+            <button className="vaciarCarrito" onClick={() => clear()}>
+              Empty cart
             </button>
           </div>
-          <h2>Congratulations! Your order number is : {orderId}</h2>
-        </div>
+          <div className="cartCard">
+            <form onSubmit={terminarCompra} className="formCompra">
+              <h2>Enter your personal data:</h2>
+
+              <input
+                type="text"
+                name="name"
+                ref={nameRef}
+                placeholder="Full name"
+                className="inputsForm"
+                required
+              />
+
+              <input
+                type="text"
+                name="mobile"
+                ref={mobileRef}
+                placeholder="Phone number"
+                className="inputsForm"
+                required
+              />
+
+              <input
+                type="text"
+                name="email"
+                ref={emailRef}
+                placeholder="Email"
+                className="inputsForm"
+                required
+              />
+
+              <button type="submit" className="botonComprar">
+                Buy!
+              </button>
+            </form>
+          </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 

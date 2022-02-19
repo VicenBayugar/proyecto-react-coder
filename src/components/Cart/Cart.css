@@ -1,3 +1,9 @@
+.divCart{
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
 .cartCard{
     width: 70%;
     height: auto;
@@ -19,6 +25,7 @@
 .cardProducto{
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .imgCart{
@@ -41,7 +48,7 @@
 }
 
 .botonEliminar{
-    width: 70%;
+    width: 85%;
     background-color: #e30000;
     border-radius: 8px;
     padding-top: 5px;
@@ -56,7 +63,9 @@
     padding-bottom: 5px;
     color: white;
     width: 40%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 h1, h2{
@@ -91,4 +100,22 @@ h1, h2{
     padding-bottom: 5px;
     color: white;
     margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .cardProducto{
+        flex-direction: column;
+    }
+    .imgCart{
+        width: 50%;
+    }
+    .descripcionCarrito{
+        width: 90%;
+    }
+    .boton{
+        width: 40%;
+    }
+    .inputsForm{
+        width: 80%;
+    }
 }
