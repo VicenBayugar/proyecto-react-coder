@@ -7,7 +7,7 @@ App operation:
 - Complete the form with your personal data
 - Buy it!
 
-![Video de funcionamiento de la App](https://media.giphy.com/media/A9aE1Y03ins59NYCE3/giphy.gif)
+![Video de funcionamiento de la App](https://media.giphy.com/media/yqeAN6didU6zYlWYMR/giphy.gif)
 
 ## Description
 
@@ -29,6 +29,6 @@ It is an e-commerce made with React, CSS and Firebase.
 
 ## Deploy
 
-Open: [https://appstorebayugar.netlify.app/](https://appstorebayugar.netlify.app/)
+Open: [https://appstorevbayugar.netlify.app/](https://appstorevbayugar.netlify.app/)
 
 _Last update: 20/02/2022_
