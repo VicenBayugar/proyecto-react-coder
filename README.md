@@ -23,9 +23,12 @@ It is an e-commerce made with React, CSS and Firebase.
 ## How to set it up
 
 - Clone this repository
-- In the project directory, run: npm i
-  IMPORTANT: For the app to work, you must use the version of Firebase and React Router Dom mentioned above.
+- In the project directory, run: npm i. IMPORTANT: For the app to work, you must use the version of Firebase and React Router Dom mentioned above.
 - In the project directory, run: npm start
 - Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## Deploy
+
+Open: [https://appstorebayugar.netlify.app/](https://appstorebayugar.netlify.app/)
+
+_Last update: 20/02/2022_
