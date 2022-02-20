@@ -31,4 +31,4 @@ It is an e-commerce made with React, CSS and Firebase.
 
 Open: [https://appstorevbayugar.netlify.app/](https://appstorevbayugar.netlify.app/)
 
-_Last update: 20/02/2022_
+_Last update: 02/20/2022._
