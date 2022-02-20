@@ -1,4 +1,6 @@
-## Available Scripts
+## AppleStore project - Ecommerce
+
+[Video de funcionamiento de la App](https://media.giphy.com/media/A9aE1Y03ins59NYCE3/giphy.gif)
 
 In the project directory, you can run:
 
