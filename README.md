@@ -29,6 +29,6 @@ It is an e-commerce made with React, CSS and Firebase.
 
 ## Deploy
 
-Open: [https://appstorevbayugar.netlify.app/](https://appstorevbayugar.netlify.app/)
+Open: [AppleStore](https://appstorevbayugar.netlify.app/)
 
 _Last update: 02/20/2022._
